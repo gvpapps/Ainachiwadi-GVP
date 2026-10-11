@@ -419,6 +419,83 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Reports Hub Sub-tabs (मासिक अहवाल, प्रपत्र ब, वार्षिक अहवाल) */
+.reports-subtab-container {
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.reports-subtab-bar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding: 2px;
+}
+
+.reports-subtab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.reports-subtab-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.reports-subtab-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.reports-subtab-btn .subtab-icon {
+  font-size: 1.15rem;
+}
+
+.reports-subtab-panel {
+  display: none;
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reports-subtab-panel.active {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .reports-subtab-container {
+    padding: 6px;
+    border-radius: 10px;
+  }
+  .reports-subtab-bar {
+    gap: 6px;
+  }
+  .reports-subtab-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
 /* Panel Header */
 .panel-header {
   display: flex;
@@ -2288,6 +2365,171 @@ body {
   padding-top: 0.45rem;
 }
 
+/* Stock Printable Sheet & Register Styling */
+.stock-printable-sheet {
+  background: #ffffff;
+  color: #000000;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6mm 8mm;
+  margin: 0 auto;
+}
+
+.stock-printable-sheet.page-break {
+  page-break-after: always;
+  break-after: page;
+}
+
+.stock-print-header {
+  text-align: center;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.stock-gov-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 2px 0;
+}
+
+.stock-school-name {
+  font-size: 14.5pt;
+  font-weight: 900;
+  color: #000000;
+  margin: 2px 0;
+}
+
+.stock-school-meta {
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 2px 0;
+}
+
+.stock-report-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 1.5px solid #000000;
+  border-radius: 4px;
+  font-size: 10.5pt;
+  font-weight: 800;
+  padding: 3px 14px;
+  margin-top: 6px;
+  color: #000000;
+}
+
+.stock-report-badge.badge-damaged {
+  background: #fffbeb;
+  border-color: #d97706;
+  color: #92400e;
+}
+
+.stock-report-badge.badge-receipts {
+  background: #f0fdf4;
+  border-color: #16a34a;
+  color: #166534;
+}
+
+.stock-print-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.8pt;
+  margin-top: 8px;
+  line-height: 1.35;
+}
+
+.stock-print-table th,
+.stock-print-table td {
+  border: 1px solid #000000;
+  padding: 4px 6px;
+}
+
+.stock-print-table th {
+  background: #f1f5f9;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+}
+
+.stock-print-table tfoot td,
+.stock-print-table tfoot th {
+  background: #f8fafc;
+  font-weight: 800;
+  border-top: 2px solid #000000;
+}
+
+.stock-print-cert {
+  font-size: 9pt;
+  margin-top: 12px;
+  line-height: 1.45;
+  text-align: justify;
+}
+
+.stock-print-signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  text-align: center;
+  font-size: 9.5pt;
+  font-weight: 700;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.stock-print-signatures .sign-box {
+  min-width: 150px;
+}
+
+.stock-print-signatures .sign-space {
+  min-height: 35px;
+}
+
+/* Modal Stock Print Center Preview Box */
+.stock-print-modal-preview {
+  max-height: 460px;
+  overflow-y: auto;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+.stock-print-modal-preview .stock-printable-sheet {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.stock-type-pill {
+  cursor: pointer;
+  padding: 0.45rem 0.85rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 20px;
+  background: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.stock-type-pill:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1d4ed8;
+}
+
+.stock-type-pill.active {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
 /* Dropzone */
 .dropzone {
   border: 2px dashed #93c5fd;
@@ -2357,7 +2599,7 @@ body {
   height: 100vh;
   background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(3px);
-  z-index: 1000;
+  z-index: 100005;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2582,19 +2824,51 @@ body {
     display: none !important;
   }
 
-  /* When specifically printing the daily slip */
+  /* When specifically printing the daily slip or stock reports */
+  body.print-slip > *:not(#printSlipContainer),
+  body.print-stock-report > *:not(#printSlipContainer),
   body.print-slip .app-header,
+  body.print-slip .creator-ribbon,
   body.print-slip .main-nav,
+  body.print-slip .mobile-bottom-nav,
   body.print-slip .app-main,
-  body.print-slip #app {
+  body.print-slip #app,
+  body.print-slip .app-footer,
+  body.print-stock-report .app-header,
+  body.print-stock-report .creator-ribbon,
+  body.print-stock-report .main-nav,
+  body.print-stock-report .mobile-bottom-nav,
+  body.print-stock-report .app-main,
+  body.print-stock-report #app,
+  body.print-stock-report .modal,
+  body.print-stock-report .modal-backdrop,
+  body.print-stock-report .no-print,
+  body.print-stock-report .app-footer,
+  body.print-stock-report #mobileMoreDrawer,
+  body.print-stock-report .toast-container {
     display: none !important;
+    visibility: hidden !important;
   }
 
-  body.print-slip #printSlipContainer {
+  body.print-slip #printSlipContainer,
+  body.print-stock-report #printSlipContainer {
     display: block !important;
+    visibility: visible !important;
+    position: static !important;
     width: 100% !important;
-    margin: 20px auto !important;
+    margin: 0 !important;
     padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  body.print-stock-report {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .app-main {
@@ -2617,6 +2891,34 @@ body {
     display: block !important;
     padding: 0 !important;
     margin: 0 !important;
+  }
+
+  /* Support for Unified Reports Tab and subtabs in print */
+  body.print-monthly #tab-reports,
+  body.print-monthly #subtab-panel-monthly {
+    display: block !important;
+  }
+  body.print-monthly #subtab-panel-formb,
+  body.print-monthly #subtab-panel-yearly {
+    display: none !important;
+  }
+
+  body.print-formb #tab-reports,
+  body.print-formb #subtab-panel-formb {
+    display: block !important;
+  }
+  body.print-formb #subtab-panel-monthly,
+  body.print-formb #subtab-panel-yearly {
+    display: none !important;
+  }
+
+  body.print-yearly #tab-reports,
+  body.print-yearly #subtab-panel-yearly {
+    display: block !important;
+  }
+  body.print-yearly #subtab-panel-monthly,
+  body.print-yearly #subtab-panel-formb {
+    display: none !important;
   }
 
   .card {
@@ -4286,11 +4588,14 @@ body {
   /* 8. Modals Mobile Fit */
   .modal-backdrop, .modal-backdrop-custom {
     padding: 0.5rem;
+    z-index: 100005 !important;
+    padding-bottom: 74px !important;
   }
 
   .modal-dialog, .modal-dialog-custom {
     max-width: 100%;
     margin: 0 auto;
+    margin-bottom: 65px !important;
   }
 
   .modal-header {
@@ -4544,6 +4849,15 @@ body {
   .drawer-tile.highlight-cloud .drawer-tile-label {
     color: #047857;
   }
+
+  .drawer-tile.highlight-print {
+    background: #f0fdf4;
+    border-color: #86efac;
+  }
+
+  .drawer-tile.highlight-print .drawer-tile-label {
+    color: #15803d;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -4563,3 +4877,118 @@ body {
     font-size: 0.7rem;
   }
 }
+
+/* ==========================================================================
+   MOBILE VIEW: ULTRA-CLEAN DAILY ENTRY FORM (Zero-Scroll Screen View)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Hide bulky dashboard header and top hero metrics cards */
+  #tab-daily .dashboard-header,
+  #tab-daily .daily-hero-stats-grid {
+    display: none !important;
+  }
+
+  /* 2. Micro-compact section ribbon for composite (1-8) schools */
+  #tab-daily .daily-section-ribbon {
+    padding: 6px 10px !important;
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+  }
+  #tab-daily .daily-section-ribbon .ribbon-title-label,
+  #tab-daily .daily-section-ribbon .ribbon-center,
+  #tab-daily .daily-section-ribbon .ribbon-right {
+    display: none !important;
+  }
+  #tab-daily .daily-section-ribbon .ribbon-left {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  #tab-daily .daily-section-ribbon .section-segmented-group {
+    width: 100% !important;
+    display: flex !important;
+  }
+  #tab-daily .daily-section-ribbon .btn-section-toggle {
+    flex: 1 1 50% !important;
+    text-align: center !important;
+    padding: 6px 8px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* 3. Hide '1-Click Attendance Chips' row (Only bold stepper [-] 14 [+] stays visible) */
+  #tab-daily .quick-att-chips-wrapper {
+    display: none !important;
+  }
+  #tab-daily .entry-attendance-box {
+    padding: 0.75rem 0.85rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  #tab-daily .attendance-stepper-box {
+    margin: 0.35rem 0 0.15rem 0 !important;
+  }
+
+  /* 4. Hide 'Fuel Grant' input box and expand 'Remarks' to full 100% width */
+  #tab-daily #fuelCostGroup,
+  #tab-daily label[for="entryFuelCost"],
+  #tab-daily #entryFuelCost,
+  #tab-daily #fuelRateHint {
+    display: none !important;
+  }
+  #tab-daily #remarksGroup {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    margin-bottom: 0 !important;
+  }
+  #tab-daily .entry-section-box {
+    padding: 0.75rem 0.85rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* 5. Hide middle live glance bar, bottom calculation table & recent entries ribbon */
+  #tab-daily #dailyCalcGlanceBox,
+  #tab-daily #calculationCard,
+  #tab-daily .recent-ribbon-card {
+    display: none !important;
+  }
+
+  /* 6. Action Buttons: Hide WhatsApp and Slip Print buttons; Prominent Save + Reset */
+  #tab-daily #btnDailyWhatsapp,
+  #tab-daily .btn-whatsapp,
+  #tab-daily #btnDailyPrintSlip,
+  #tab-daily button[onclick*="printDailySlip"] {
+    display: none !important;
+  }
+
+  #tab-daily #dailyActionButtonsGroup {
+    margin-top: 0.65rem !important;
+    gap: 0.45rem !important;
+  }
+  #tab-daily #btnSaveDaily {
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(22, 101, 52, 0.28) !important;
+  }
+  #tab-daily #dailySecondaryActions {
+    width: 100% !important;
+  }
+  #tab-daily #btnDailyReset {
+    width: 100% !important;
+    padding: 0.45rem 0.75rem !important;
+    font-size: 0.82rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* 7. Card & Spacing Optimization for Zero-Scroll Fit */
+  #tab-daily .entry-control-card {
+    margin-bottom: 0.5rem !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  }
+  #tab-daily .entry-control-card .card-header {
+    padding: 0.55rem 0.85rem !important;
+  }
+  #tab-daily .entry-control-card .card-body {
+    padding: 0.65rem 0.75rem !important;
+  }
+}
+
